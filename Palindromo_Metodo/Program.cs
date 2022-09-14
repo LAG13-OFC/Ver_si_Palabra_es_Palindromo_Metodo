@@ -15,13 +15,13 @@ namespace Palindromo_Metodo
             Write("Ingrese palabra: ");
             palabra = ReadLine();                                           
             palabra = palabra.ToLower();
-            if(Polidromo(palabra) > 0)                                                          //si el metodo Polidromo() devuelve un N° mayor que 0
+            if(Polidromon(palabra) > 0)                                                          //si el metodo Polidromo() devuelve un N° mayor que 0
             {   
-                WriteLine($"La palabra '{palabra}' ES Polidromo");                              //es polidromo
+                WriteLine($"La palabra '{palabra}' ES Palindromo");                              //es polidromo
             }
-            else if(Polidromo(palabra) < 0)                                                     //o si es menor a 0 no es Polimedro
+            else if(Polidromon(palabra) < 0)                                                     //o si es menor a 0 no es Polimedro
             {
-                WriteLine($"La palabra '{palabra}' NO es Polidromo");
+                WriteLine($"La palabra '{palabra}' NO es Palindromo");
             }
             ReadKey();
         }
@@ -36,6 +36,21 @@ namespace Palindromo_Metodo
                     return -1;                                                                  //Si se cumple devuelve -1
                 }
                 cont++;                                                                         //v cont que incrementa
+            }
+            return 1;                                                                           //Si nunca pasa por dentro del if va a retornar un 1
+        }
+
+        static int Polidromon(string pal)                                                        //metodo que resibe un string y devulve un entero
+        {
+            int i, fin= pal.Length-1;                                                                      //v i para decrementar en el for y v cont para incrementar
+
+            for (i = 0; i < pal.Length/2; i++)                                               // for de decremento, empieza en la ultima letra de la palabra
+            {
+                if (pal[i] != pal[fin])                                                        //if para ver si la letra en la posicion i es distinta a letra en posicion cont
+                {
+                    return -1;                                                                  //Si se cumple devuelve -1
+                }
+                fin--;                                                                         //v cont que incrementa
             }
             return 1;                                                                           //Si nunca pasa por dentro del if va a retornar un 1
         }
